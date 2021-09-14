@@ -1,5 +1,9 @@
 # Organização NEANDER
 
+## TODO
+
+* [ ] ATIVIDADE 04 rushar
+
 ### Modulo - ULA
 
 * reg AC
@@ -18,6 +22,10 @@
 		* controle `ULA_op` com 3 bits que determinan operação
 	* saidas:
 		* dados `s` com 8 bits e estados `NZ` com 2 bits
+	* armadilha in-out
+	* instruções bidirecionais
+		* MEM -> ULA: LDA, ADD, AND, OR
+		* ULA -> MEM: STA
 
 ### Modulo - Memoria
 
