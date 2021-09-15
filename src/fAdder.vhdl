@@ -8,10 +8,10 @@ use IEEE.numeric_std.all;
 
 entity fAdder1b is
 	port (
-		A, B : in  bit; -- inputs
-		Cin  : in  bit; -- carry in
-		Cout : out bit; -- carry out
-		S    : out bit  -- output
+		A, B : in  std_logic; -- inputs
+		Cin  : in  std_logic; -- carry in
+		Cout : out std_logic; -- carry out
+		S    : out std_logic  -- output
 	);
 end entity fAdder1b;
 architecture behaviour of fAdder1b is
@@ -39,25 +39,25 @@ use IEEE.numeric_std.all;
 
 entity fAdder4b is
 	port (
-		A, B : in  bit_vector(3 downto 0); -- inputs
-		Cin  : in  bit; -- carry in
-		Cout : out bit; -- carry out
-		S    : out bit_vector(3 downto 0)  -- output
+		A, B : in  std_logic_vector(3 downto 0); -- inputs
+		Cin  : in  std_logic; -- carry in
+		Cout : out std_logic; -- carry out
+		S    : out std_logic_vector(3 downto 0)  -- output
 	);
 end entity fAdder4b;
 architecture behaviour of fAdder4b is
 
 	component fAdder1b is
 		port (
-			A, B : in  bit; -- inputs
-			Cin  : in  bit; -- carry in
-			Cout : out bit; -- carry out
-			S    : out bit  -- output
+			A, B : in  std_logic; -- inputs
+			Cin  : in  std_logic; -- carry in
+			Cout : out std_logic; -- carry out
+			S    : out std_logic  -- output
 		);
 	end component;
 	-- internal carry signal
 	-- carry vector
-	signal cv : bit_vector (2 downto 0);
+	signal cv : std_logic_vector (2 downto 0);
 
 begin
 	-- uso de 4 fadders1b
@@ -82,25 +82,25 @@ use IEEE.numeric_std.all;
 
 entity fAdder8b is
 	port (
-		A, B : in  bit_vector(7 downto 0); -- inputs
-		Cin  : in  bit; -- carry in
-		Cout : out bit; -- carry out
-		S    : out bit_vector(7 downto 0)  -- output
+		A, B : in  std_logic_vector(7 downto 0); -- inputs
+		Cin  : in  std_logic; -- carry in
+		Cout : out std_logic; -- carry out
+		S    : out std_logic_vector(7 downto 0)  -- output
 	);
 end entity fAdder8b;
 architecture behaviour of fAdder8b is
 
 	component fAdder4b is
 		port (
-			A, B : in  bit_vector(3 downto 0); -- inputs
-			Cin  : in  bit; -- carry in
-			Cout : out bit; -- carry out
-			S    : out bit_vector(3 downto 0)  -- output
+			A, B : in  std_logic_vector(3 downto 0); -- inputs
+			Cin  : in  std_logic; -- carry in
+			Cout : out std_logic; -- carry out
+			S    : out std_logic_vector(3 downto 0)  -- output
 		);
 	end component;
 	-- internal carry signal
 	-- carry bit
-	signal cv : bit;
+	signal cv : std_logic;
 
 begin
 	-- uso de 2 fadders4b
