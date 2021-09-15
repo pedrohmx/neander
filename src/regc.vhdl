@@ -33,17 +33,48 @@ begin
 	u_ffd: ffd port map(sd, clk, pr, cl, sq, snq);
 end architecture behaviour;
 ------------------------------------------------------------
+--  regc2b
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity regc2b is
+	port (
+		d      : in  std_logic_vector(1 downto 0);
+		rw     : in  std_logic;
+		clk    : in  std_logic;
+		pr, cl : in  std_logic;
+		s      : out std_logic_vector(1 downto 0)
+	);
+end entity regc2b;
+architecture behaviour of regc2b is
+	component regc1b is
+		port (
+			d      : in  std_logic;
+			rw     : in  std_logic;
+			clk    : in  std_logic;
+			pr, cl : in  std_logic;
+			s      : out std_logic
+		);
+	end component;
+begin
+	gen_r : for i in 1 downto 0 generate
+		rx : regc1b port map(
+			d(i), rw, clk, pr, cl, s(i)
+		);
+	end generate gen_r;
+end architecture behaviour;
+------------------------------------------------------------
 --  regc8b
 library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity regc8b is
 	port (
-		d      : in  std_logic_vector( 7 downto 0 );
+		d      : in  std_logic_vector(7 downto 0);
 		rw     : in  std_logic;
 		clk    : in  std_logic;
 		pr, cl : in  std_logic;
-		s      : out std_logic_vector( 7 downto 0 )
+		s      : out std_logic_vector(7 downto 0)
 	);
 end entity regc8b;
 architecture behaviour of regc8b is
