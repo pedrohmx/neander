@@ -35,3 +35,29 @@ begin
 	Z <= C0 when S = '0' else C1;
 end architecture behaviour;
 ------------------------------------------------------------
+-- 5x8
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux_5x8 is
+	port(
+		C000 : in  std_logic_vector(7 downto 0);
+		C001 : in  std_logic_vector(7 downto 0);
+		C010 : in  std_logic_vector(7 downto 0);
+		C011 : in  std_logic_vector(7 downto 0);
+		C100 : in  std_logic_vector(7 downto 0);
+		S  : in  std_logic_vector(2 downto 0);
+		Z  : out std_logic_vector(7 downto 0)
+	);
+end entity mux_5x8;
+architecture behaviour of mux_5x8 is
+begin
+	with S select
+	Z <= C000 when "000",
+		C001 when "001",
+		C010 when "010",
+		C011 when "011",
+		C100 when others;--,
+		--x"00" when others;
+end architecture behaviour;
+------------------------------------------------------------
