@@ -1,9 +1,5 @@
 # Organização NEANDER
 
-## TODO
-
-* [ ] ATIVIDADE 04 rushar
-
 ### Modulo - ULA
 
 * reg AC

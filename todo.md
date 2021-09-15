@@ -1,7 +1,8 @@
 # TODO
 
-* [ ] - Componentes da atividade 04
-* [ ] - Elaborar resto do todo
+* [X] - Componentes da atividade 04
+	* [ ] - Testbench
+* [ ] - Elaborar resto do TODO
 
 ### A04
 
