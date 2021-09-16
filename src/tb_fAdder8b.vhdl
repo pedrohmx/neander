@@ -11,16 +11,16 @@ constant relogio 	: time 	:= 10 ns;
 
 component fAdder8b is
 	port (
-		A, B : in  bit_vector(7 downto 0); -- inputs
-		Cin  : in  bit; -- carry in
-		Cout : out bit; -- carry out
-		S    : out bit_vector(7 downto 0)  -- output
+		A, B : in  std_logic_vector(7 downto 0); -- inputs
+		Cin  : in  std_logic; -- carry in
+		Cout : out std_logic; -- carry out
+		S    : out std_logic_vector(7 downto 0)  -- output
 	);
 end component fAdder8b;
 
-signal s_A, s_B      : bit_vector(7 downto 0);
-signal s_Cin, s_Cout : bit;
-signal s_S           : bit_vector(7 downto 0);
+signal s_A, s_B      : std_logic_vector(7 downto 0);
+signal s_Cin, s_Cout : std_logic;
+signal s_S           : std_logic_vector(7 downto 0);
 
 begin
     u_fAdder: fAdder8b port map (
