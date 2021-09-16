@@ -84,13 +84,15 @@ use IEEE.numeric_std.all;
 entity modulo_ULA is
 	port (
 		barramento : inout std_logic_vector(7 downto 0);
+		--
 		ula_op : in std_logic_vector(2 downto 0);
+		--
 		ac_rw : in std_logic;
 		mem_rw : in std_logic;
-
+		--
 		clk : in std_logic;
 		cl : in std_logic;
-
+		--
 		flags : out std_logic_vector(1 downto 0)
 	);
 end entity modulo_ULA;
