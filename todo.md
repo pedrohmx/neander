@@ -8,19 +8,19 @@
 
 * mux
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
 * fAdder
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
 * and
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
 * or
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
 * not
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
 * regc
 	* [X] - vhdl
-	* [ ] - tb
+	* [X] - tb
