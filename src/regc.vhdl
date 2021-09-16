@@ -31,6 +31,7 @@ begin
 	-- mux
 	sd <= d when rw = '1' else sq;
 	u_ffd: ffd port map(sd, clk, pr, cl, sq, snq);
+	s  <= sq;
 end architecture behaviour;
 ------------------------------------------------------------
 --  regc2b
