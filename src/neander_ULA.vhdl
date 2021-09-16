@@ -71,7 +71,7 @@ begin
 		Y, sadd, sor, sand, snot, OP, sres
 	);
 	NZ(0) <= '1' when sres = "00000000" else '0';
-	NZ(1) <= '1' when sres(7) = '1' else '0';
+	NZ(1) <= sres(7);
 	S <= sres;
 	
 end architecture behaviour;
