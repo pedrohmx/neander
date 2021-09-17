@@ -4,8 +4,8 @@
 
 * [ ] Neander
 	* [X] ULA
-		* [ ] Componentes
-		* [ ] Test Bench
+		* [X] Componentes
+		* [X] Test Bench
 	* [X] MEM
 		* [X] Componentes
 		* [X] Test Bench
