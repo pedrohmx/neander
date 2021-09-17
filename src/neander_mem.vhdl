@@ -1,12 +1,12 @@
 ------------------------------------------------------------
---  Neander - Modulo de Memoria
+--	Neander - Modulo de Memoria
 ------------------------------------------------------------
---  Componentes
+--	Componentes
 --		reg RDM (MBR)
 --		reg REM (MAR)
 --		memoria
 ------------------------------------------------------------
---  Modulo Memoria
+--	Modulo Memoria
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -24,8 +24,7 @@ entity modulo_MEM is
 		rdm_rw : in std_logic;
 		--
 		clk : in std_logic;
-		cl : in std_logic--;
-		--
+		cl : in std_logic
 	);
 end entity modulo_MEM;
 architecture behaviour of modulo_MEM is
