@@ -55,7 +55,7 @@ begin
 	barramento <= s_rdm2barr when mem_rw = '0' else (others => 'Z');
 	s_mem2rdm  <= barramento when mem_rw = '1' else (others => 'Z');
 	--  mux2x8
-	s_mem2rdm <= addr_barr when barrPC = '0' else addr_pc;
+	s_mux2rem <= addr_barr when barrPC = '0' else addr_pc;
 	--  rem
 	u_reg_rem : regc8b port map(
 		s_mux2rem, rem_rw, clk, '1', cl, s_rem2mem
