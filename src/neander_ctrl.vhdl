@@ -85,6 +85,32 @@ begin
 end architecture behaviour;
 ------------------------------------------------------------
 --	UC
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity UC is
+	port (
+		dec2un : in std_logic_vector(10 downto 0);
+		nz : in std_logic_vector(1 downto 0);
+		clk, cl : in std_logic;
+		barr_crtl_out : out std_logic_vector(10 downto 0)
+	);
+end entity UC;
+architecture inferno of UC is
+	component counter3b is
+		port (
+			clk, cl : in std_logic;
+			s : out std_logic_vector(2 downto 0)
+		);
+	end component;
+	signal s_ciclo : std_logic_vector(2 downto 0);
+begin
+	
+	u_c3b : counter3b port map(clk,cl,s_ciclo);
+	-- TODO: modulo de ciclo de instrução
+end architecture inferno;
+
 ------------------------------------------------------------
 --	Modulo de controle
 library IEEE;
