@@ -1,10 +1,25 @@
 # TODO
 
-* [X] - Componentes da atividade 04
-	* [ ] - Testbench
-* [ ] - Elaborar resto do TODO
+### Progresso NEANDER
 
-### A04
+* [ ] Neander
+	* [X] ULA
+		* [ ] Componentes
+		* [ ] Test Bench
+	* [X] MEM
+		* [X] Componentes
+		* [X] Test Bench
+	* [ ] CTRL
+		* [ ] PC
+			* [X] Componentes
+			* [ ] Test Bench
+		* [ ] UC
+			* [ ] Componentes
+			* [ ] Test Bench
+* [ ] Elaborar resto do TODO
+* [ ] Ultimate TestBench from hell ft dante from DMC series
+
+### Componentes - A04
 
 * mux
 	* [X] - vhdl
