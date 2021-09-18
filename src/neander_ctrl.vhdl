@@ -107,74 +107,74 @@ architecture inferno of UC is
 	component op_nop is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_sta is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_lda is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_add is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_and is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_or is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_not is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_jmp is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_jn is
 		port(
 			ci : in std_logic_vector(2 downto 0);
 			n : in std_logic;
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_jz is
 		port(
 			ci : in std_logic_vector(2 downto 0);
 			z : in std_logic;
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	component op_hlt is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			instr : out std_logic(10 downto 0)
+			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	-- sinal de Ciclo de Instrucao
 	signal CI : std_logic_vector(2 downto 0);
-	signal snop, sstam, slda, sadd, sand, sor, snot, sjmp, sjn, sjz, shlt: std_logic_vector(10 downto 0);
+	signal snop, ssta, slda, sadd, sand, sor, snot, sjmp, sjn, sjz, shlt: std_logic_vector(10 downto 0);
 begin
 	u_c3b : counter3b port map(clk,cl,CI);
 	-- TODO: modulo de micro operações
@@ -204,7 +204,7 @@ begin
 	--	mux11x11 special
 	with dec2un select barr_crtl_out <=
 		snop  when "10000000000",
-		sstam when "01000000000",
+		ssta  when "01000000000",
 		slda  when "00100000000",
 		sadd  when "00010000000",
 		sand  when "00001000000",
@@ -227,6 +227,7 @@ entity CTRL is
 	port (
 		barr_di : in std_logic_vector(7 downto 0);
 		nz : in std_logic_vector(1 downto 0);
+		clk, cl : in std_logic;
 		barr_crtl : out std_logic_vector(10 downto 0)
 	);
 end entity CTRL;
