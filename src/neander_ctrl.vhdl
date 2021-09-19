@@ -177,20 +177,19 @@ architecture inferno of UC is
 	signal snop, ssta, slda, sadd, sand, sor, snot, sjmp, sjn, sjz, shlt: std_logic_vector(10 downto 0);
 begin
 	u_c3b : counter3b port map(clk,cl,CI);
-	-- TODO: modulo de micro operações
 	--	NOP
 	u_nop : op_nop port map(CI,snop);
 	--	STA TODO:
 	u_sta : op_sta port map(CI,ssta);
 	--	LDA
 	u_lda : op_lda port map(CI,slda);
-	--	ADD TODO:
+	--	ADD
 	u_add : op_add port map(CI,sadd);
-	--	AND TODO:
+	--	AND
 	u_and : op_and port map(CI,sand);
-	--	OR  TODO:
+	--	OR
 	u_or : op_or port map(CI,sor);
-	--	NOT TODO:
+	--	NOT
 	u_not : op_not port map(CI,snot);
 	--	JMP TODO:
 	u_jmp : op_jmp port map(CI,sjmp);
