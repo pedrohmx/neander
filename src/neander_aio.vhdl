@@ -47,13 +47,14 @@ architecture behaviour of neander is
 			barr_inc : in std_logic;
 			pc_rw : in std_logic;
 			clk, cl : in std_logic;
-			addr_out : in std_logic_vector(7 downto 0)
+			addr_out : out std_logic_vector(7 downto 0)
 		);
 	end component;
 	component CTRL is
 		port (
 			barr_di : in std_logic_vector(7 downto 0);
 			nz : in std_logic_vector(1 downto 0);
+			clk, cl : in std_logic;
 			barr_crtl : out std_logic_vector(10 downto 0)
 		);
 	end component;
@@ -90,6 +91,8 @@ begin
 	u_m_ctrl : CTRL port map(
 		barr_di => s_barr_di,
 		nz => s_nz,
+		clk => clk,
+		cl => cl,
 		-- desmontndo barramento de controle em varios sinais
 		barr_crtl(10) => s_barr_inc,
 		barr_crtl(9) => s_barr_pc,
