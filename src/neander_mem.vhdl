@@ -52,8 +52,10 @@ architecture behaviour of modulo_MEM is
 	signal             s_rdm2barr : std_logic_vector(7 downto 0);
 begin
 	--  mux2x8z 2 memory boogaloo ft dante from dmc series
-	barramento <= s_rdm2barr when mem_rw = '0' else (others => 'Z');
-	s_mem2rdm  <= barramento when mem_rw = '1' else (others => 'Z');
+	barramento <= s_rdm2barr when mem_rw = '0'
+		else (others => 'Z');
+	s_mem2rdm  <= barramento when mem_rw = '1'
+		else (others => 'Z');
 	--  mux2x8
 	s_mux2rem <= addr_barr when barrPC = '0' else addr_pc;
 	--  rem
