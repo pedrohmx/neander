@@ -81,7 +81,7 @@ begin
 		"00000000100" when "1001",--JN
 		"00000000010" when "1010",--JZ
 		"00000000001" when "1111",--HLT
-		"00000000000" when others;
+		"00000000001" when others;
 end architecture behaviour;
 ------------------------------------------------------------
 --	UC
@@ -152,17 +152,10 @@ architecture inferno of UC is
 			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
-	component op_jn is
+	component op_jnz is
 		port(
 			ci : in std_logic_vector(2 downto 0);
-			n : in std_logic;
-			instr : out std_logic_vector(10 downto 0)
-		);
-	end component;
-	component op_jz is
-		port(
-			ci : in std_logic_vector(2 downto 0);
-			z : in std_logic;
+			flag : in std_logic;
 			instr : out std_logic_vector(10 downto 0)
 		);
 	end component;
@@ -194,9 +187,9 @@ begin
 	--	JMP TODO:
 	u_jmp : op_jmp port map(CI,sjmp);
 	--	JN  TODO:
-	u_jn : op_jn port map(CI,nz(1),sjn);
+	u_jn : op_jnz port map(CI,nz(1),sjn);
 	--	JZ  TODO:
-	u_jz : op_jz port map(CI,nz(0),sjz);
+	u_jz : op_jnz port map(CI,nz(0),sjz);
 	--	HLT
 	u_hlt : op_hlt port map(CI,shlt);
 
@@ -213,7 +206,7 @@ begin
 		sjn   when "00000000100",
 		sjz   when "00000000010",
 		shlt  when "00000000001",
-		"ZZZZZZZZZZZ" when others;
+		"00000000000" when others;
 end architecture inferno;
 
 ------------------------------------------------------------

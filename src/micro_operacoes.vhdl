@@ -24,7 +24,7 @@ begin
 	instr(1)  <= not(ci(2)) and not(ci(1)) and ci(0); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
---	STA TODO:
+--	STA
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -36,15 +36,16 @@ entity op_sta is
 end entity op_sta;
 architecture op of op_sta is
 begin
-	instr(10) <= '0'; -- barr_inc;
-	instr(9)  <= '0'; -- barrPC;
+	instr(10) <= '1'; -- barr_inc;
+	instr(9)  <= not(ci(2)) or ci(1) or not(ci(0)); -- barrPC;
 	instr(8 downto 6) <= "000"; -- ula_op;
-	instr(5)  <= '0'; -- pc_rw;
+	instr(5)  <= not(ci(1)) and (ci(2) xor ci(0)); -- pc_rw;
 	instr(4)  <= '0'; -- ac_rw;
-	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= '0'; -- rem_rw;
-	instr(1)  <= '0'; -- rdm_rw;
-	instr(0)  <= '0'; -- ri_rw;
+	instr(3)  <= ci(2) and ci(1) and not(ci(0)); -- mem_rw;
+	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))) or
+				 (not(ci(2)) and ci(1) and ci(0)); -- rem_rw;
+	instr(1)  <= ci(2) and ci(1) and not(ci(0)); -- rdm_rw;
+	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
 --	LDA
 library IEEE;
@@ -88,7 +89,8 @@ begin
 	instr(5)  <= not(ci(1)) and (ci(2) xor ci(0)); -- pc_rw;
 	instr(4)  <= ci(2) and ci(1) and ci(0) ; -- ac_rw;
 	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))); -- rem_rw;
+	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))) or
+				 (not(ci(2)) and ci(1) and ci(0)); -- rem_rw;
 	instr(1)  <= (ci(2) and not(ci(0))) or
 	             (not(ci(2)) and not(ci(1)) and ci(0)); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
@@ -111,7 +113,8 @@ begin
 	instr(5)  <= not(ci(1)) and (ci(2) xor ci(0)); -- pc_rw;
 	instr(4)  <= ci(2) and ci(1) and ci(0) ; -- ac_rw;
 	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))); -- rem_rw;
+	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))) or
+				 (not(ci(2)) and ci(1) and ci(0)); -- rem_rw;
 	instr(1)  <= (ci(2) and not(ci(0))) or
 	             (not(ci(2)) and not(ci(1)) and ci(0)); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
@@ -134,7 +137,8 @@ begin
 	instr(5)  <= not(ci(1)) and (ci(2) xor ci(0)); -- pc_rw;
 	instr(4)  <= ci(2) and ci(1) and ci(0) ; -- ac_rw;
 	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))); -- rem_rw;
+	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))) or
+				 (not(ci(2)) and ci(1) and ci(0)); -- rem_rw;
 	instr(1)  <= (ci(2) and not(ci(0))) or
 	             (not(ci(2)) and not(ci(1)) and ci(0)); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
@@ -173,61 +177,43 @@ entity op_jmp is
 end entity op_jmp;
 architecture op of op_jmp is
 begin
-	instr(10) <= '0'; -- barr_inc;
-	instr(9)  <= '0'; -- barrPC;
+	instr(10) <= not(ci(2)) or not(ci(0)); -- barr_inc;
+	instr(9)  <= '1'; -- barrPC;
 	instr(8 downto 6) <= "000"; -- ula_op;
-	instr(5)  <= '0'; -- pc_rw;
+	instr(5)  <= not(ci(1)) and ci(0); -- pc_rw;
 	instr(4)  <= '0'; -- ac_rw;
 	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= '0'; -- rem_rw;
-	instr(1)  <= '0'; -- rdm_rw;
-	instr(0)  <= '0'; -- ri_rw;
+	instr(2)  <= not(ci(2)) and (ci(1) xnor ci(0)); -- rem_rw;
+	instr(1)  <= not(ci(1)) and (ci(2) xor ci(0)); -- rdm_rw;
+	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
---	JN  TODO:
+--	JN and JZ  TODO:
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity op_jn is
+entity op_jnz is
 	port (
 		ci : in std_logic_vector(2 downto 0);
-		n  : in std_logic;
+		flag  : in std_logic;
 		instr : out std_logic_vector(10 downto 0)
 	);
-end entity op_jn;
-architecture op of op_jn is
+end entity op_jnz;
+architecture op of op_jnz is
 begin
-	instr(10) <= '0'; -- barr_inc;
-	instr(9)  <= '0'; -- barrPC;
+	instr(10) <= not(ci(2)) or not(ci(0)) when flag = '1' else
+		'1'; -- barr_inc;
+	instr(9)  <= '1' when flag = '1' else
+		'1'; -- barrPC;
 	instr(8 downto 6) <= "000"; -- ula_op;
-	instr(5)  <= '0'; -- pc_rw;
+	instr(5)  <= not(ci(1)) and ci(0) when flag = '1' else
+		not(ci(2)) and ci(0); -- pc_rw;
 	instr(4)  <= '0'; -- ac_rw;
 	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= '0'; -- rem_rw;
-	instr(1)  <= '0'; -- rdm_rw;
-	instr(0)  <= '0'; -- ri_rw;
-end architecture op;
---	JZ  TODO:
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity op_jz is
-	port (
-		ci : in std_logic_vector(2 downto 0);
-		z  : in std_logic;
-		instr : out std_logic_vector(10 downto 0)
-	);
-end entity op_jz;
-architecture op of op_jz is
-begin
-	instr(10) <= '0'; -- barr_inc;
-	instr(9)  <= '0'; -- barrPC;
-	instr(8 downto 6) <= "000"; -- ula_op;
-	instr(5)  <= '0'; -- pc_rw;
-	instr(4)  <= '0'; -- ac_rw;
-	instr(3)  <= '0'; -- mem_rw;
-	instr(2)  <= '0'; -- rem_rw;
-	instr(1)  <= '0'; -- rdm_rw;
-	instr(0)  <= '0'; -- ri_rw;
+	instr(2)  <= not(ci(2)) and (ci(1) xnor ci(0)) when flag = '1' else
+		not(ci(2)) and not(ci(1)) and not(ci(0)); -- rem_rw;
+	instr(1)  <= not(ci(1)) and (ci(2) xor ci(0)) when flag = '1' else
+		not(ci(2)) and not(ci(1)) and ci(0); -- rdm_rw;
+	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
 --	HLT
 library IEEE;
