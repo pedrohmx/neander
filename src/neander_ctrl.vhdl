@@ -72,7 +72,7 @@ begin
 	with instr_in(7 downto 4) select instr_out <=
 		"10000000000" when "0000",--NOP
 		"01000000000" when "0001",--STA
-		"00100000000" when "0010",--LDS
+		"00100000000" when "0010",--LDA
 		"00010000000" when "0011",--ADD
 		"00001000000" when "0100",--OR
 		"00000100000" when "0101",--AND
@@ -220,7 +220,7 @@ entity CTRL is
 		barr_di : in std_logic_vector(7 downto 0);
 		nz : in std_logic_vector(1 downto 0);
 		clk, cl : in std_logic;
-		barr_crtl : out std_logic_vector(10 downto 0)
+		barr_ctrl : out std_logic_vector(10 downto 0)
 	);
 end entity CTRL;
 architecture behaviour of CTRL is
@@ -260,6 +260,6 @@ begin
 	u_uc : UC port map(
 		s_dec2uc, nz, clk, cl, s_barr_crtl
 	);
-	barr_crtl <= s_barr_crtl;
+	barr_ctrl <= s_barr_crtl;
 end architecture behaviour;
 ------------------------------------------------------------

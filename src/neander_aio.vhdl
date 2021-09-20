@@ -55,13 +55,13 @@ architecture behaviour of neander is
 			barr_di : in std_logic_vector(7 downto 0);
 			nz : in std_logic_vector(1 downto 0);
 			clk, cl : in std_logic;
-			barr_crtl : out std_logic_vector(10 downto 0)
+			barr_ctrl : out std_logic_vector(10 downto 0)
 		);
 	end component;
 	signal s_barr_di : std_logic_vector(7 downto 0);
 	signal s_pc2mem : std_logic_vector(7 downto 0);
 	signal s_nz : std_logic_vector(1 downto 0);
-	--signal barr_crtl : std_logic_vector(11 downto 0);
+	--signal barr_ctrl : std_logic_vector(11 downto 0);
 	signal s_barr_inc : std_logic;
 	signal s_barr_pc : std_logic;
 	signal s_ula_op : std_logic_vector(2 downto 0);
@@ -94,15 +94,15 @@ begin
 		clk => clk,
 		cl => cl,
 		-- desmontndo barramento de controle em varios sinais
-		barr_crtl(10) => s_barr_inc,
-		barr_crtl(9) => s_barr_pc,
-		barr_crtl(8 downto 6) => s_ula_op,
-		barr_crtl(5) => s_pc_rw,
-		barr_crtl(4) => s_ac_rw,
-		barr_crtl(3) => s_mem_rw,
-		barr_crtl(2) => s_rem_rw,
-		barr_crtl(1) => s_rdm_rw,
-		barr_crtl(0) => s_ri_rw
+		barr_ctrl(10) => s_barr_inc,
+		barr_ctrl(9) => s_barr_pc,
+		barr_ctrl(8 downto 6) => s_ula_op,
+		barr_ctrl(5) => s_pc_rw,
+		barr_ctrl(4) => s_ac_rw,
+		barr_ctrl(3) => s_mem_rw,
+		barr_ctrl(2) => s_rem_rw,
+		barr_ctrl(1) => s_rdm_rw,
+		barr_ctrl(0) => s_ri_rw
 	);
 end architecture behaviour;
 

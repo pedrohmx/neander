@@ -165,7 +165,7 @@ begin
 	instr(1)  <= not(ci(2)) and not(ci(1)) and ci(0); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
---	JMP TODO:
+--	JMP
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -187,7 +187,7 @@ begin
 	instr(1)  <= not(ci(1)) and (ci(2) xor ci(0)); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
---	JN and JZ  TODO:
+--	JN and JZ
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;

@@ -45,13 +45,13 @@ architecture behaviour of modulo_MEM is
 			reset : in    std_logic
 		);
 	end component as_ram;
-	-- freestyle
+	-- sinais que ligam os componentes
 	signal s_mux2rem : std_logic_vector(7 downto 0);
 	signal     s_rem2mem : std_logic_vector(7 downto 0);
 	signal         s_mem2rdm : std_logic_vector(7 downto 0);
 	signal             s_rdm2barr : std_logic_vector(7 downto 0);
 begin
-	--  mux2x8z 2 memory boogaloo ft dante from dmc series
+	--  mux2x8z
 	barramento <= s_rdm2barr when mem_rw = '0'
 		else (others => 'Z');
 	s_mem2rdm  <= barramento when mem_rw = '1'
