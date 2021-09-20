@@ -1,0 +1,54 @@
+[*]
+[*] GTKWave Analyzer v3.3.109 (w)1999-2020 BSI
+[*] Mon Sep 20 01:40:10 2021
+[*]
+[dumpfile] "/home/xavier/Syncs/unioeste/sd/neander/src/tb_neander.vcd"
+[dumpfile_mtime] "Mon Sep 20 01:31:16 2021"
+[dumpfile_size] 264333
+[savefile] "/home/xavier/Syncs/unioeste/sd/neander/src/wave_neander.gtkw"
+[timestart] 0
+[size] 1920 1018
+[pos] -1 146
+*-26.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_neander.
+[treeopen] tb_neander.u_cur.
+[treeopen] tb_neander.u_cur.u_m_mem.
+[sst_width] 202
+[signals_width] 269
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@28
++{Clear} tb_neander.s_cl
++{Clock} tb_neander.s_clk
+@200
+-Barramentos
+@22
++{Barr_Dados} tb_neander.u_cur.s_barr_di[7:0]
+@200
+-Controle
+@28
++{barr_inc} tb_neander.u_cur.s_barr_inc
++{barr_pc} tb_neander.u_cur.s_barr_pc
+@22
++{ULA_op} tb_neander.u_cur.s_ula_op[2:0]
+@28
++{PC_rw} tb_neander.u_cur.s_pc_rw
++{AC_rw} tb_neander.u_cur.s_ac_rw
++{MEM_rw} tb_neander.u_cur.s_mem_rw
++{REM_rw} tb_neander.u_cur.s_rem_rw
++{RDM_rw} tb_neander.u_cur.s_rdm_rw
++{RI_rw} tb_neander.u_cur.s_ri_rw
+@200
+-Flags
+@28
++{NZ} tb_neander.u_cur.u_m_ctrl.nz[1:0]
+@200
+-Registradores
+@22
++{PC} tb_neander.u_cur.u_m_rip.u_reg_pc.s[7:0]
++{AC} tb_neander.u_cur.u_m_ula.u_reg_ac.s[7:0]
++{RI} tb_neander.u_cur.u_m_ctrl.u_ri.s[7:0]
++{REM} tb_neander.u_cur.u_m_mem.u_reg_rem.s[7:0]
++{RDM} tb_neander.u_cur.u_m_mem.u_reg_rdm.s[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
