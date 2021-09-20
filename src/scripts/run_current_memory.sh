@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
-STIME=1100ns
-NAME=tb_cur
+STOPTIME=1100ns
+TARGET=tb_neander
 
 ghdl -a *.vhdl && \
-	ghdl -e $NAME && \
-	ghdl -r $NAME \
-		--vcd=$NAME.vcd \
-		--wave=$NAME.ghw \
-		--stop-time=$STIME
+	ghdl -e $TARGET && \
+	ghdl -r $TARGET \
+		--vcd=$TARGET.vcd \
+		--wave=$TARGET.ghw \
+		--stop-time=$STOPTIME
