@@ -1,3 +1,6 @@
 *.o
 *.cf
 *.wip
+src/tb_neander
+src/tb_neander.ghw
+src/tb_neander.vcd
