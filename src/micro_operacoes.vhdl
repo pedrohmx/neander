@@ -44,7 +44,7 @@ begin
 	instr(3)  <= ci(2) and ci(1) and not(ci(0)); -- mem_rw;
 	instr(2)  <= (not(ci(1)) and (ci(2) xnor ci(0))) or
 				 (not(ci(2)) and ci(1) and ci(0)); -- rem_rw;
-	instr(1)  <= ci(2) and ci(1) and not(ci(0)); -- rdm_rw;
+	instr(1)  <= not(ci(1)) and (ci(2) xor ci(0)); -- rdm_rw;
 	instr(0)  <= not(ci(2)) and ci(1) and not(ci(0)); -- ri_rw;
 end architecture op;
 --	LDA
