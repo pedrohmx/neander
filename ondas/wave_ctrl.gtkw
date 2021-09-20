@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.109 (w)1999-2020 BSI
+[*] Mon Sep 20 00:55:13 2021
+[*]
+[dumpfile] "/home/xavier/Syncs/unioeste/sd/neander/src/tb_ctrl.vcd"
+[dumpfile_mtime] "Mon Sep 20 00:50:29 2021"
+[dumpfile_size] 96699
+[savefile] "/home/xavier/Syncs/unioeste/sd/neander/src/wave_ctrl.gtkw"
+[timestart] 0
+[size] 1920 1018
+[pos] -1 -1
+*-27.000000 73100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_ctrl.
+[treeopen] tb_ctrl.u_ctrl.
+[sst_width] 202
+[signals_width] 275
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@28
+tb_ctrl.s_cl
+tb_ctrl.s_clk
+@200
+-Sinais
+@28
++{barr_dados} tb_ctrl.s_barr_di[7:0]
++{barr_ctrl} tb_ctrl.s_barr_ctrl[10:0]
++{NZ} tb_ctrl.s_flags_nz[1:0]
+@24
++{Etapa CI} tb_ctrl.u_ctrl.u_uc.u_c3b.s[2:0]
+@200
+-Registradores
+@22
++{RI} tb_ctrl.u_ctrl.u_ri.s[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.109 (w)1999-2020 BSI
+[*] Mon Sep 20 00:03:34 2021
+[*]
+[dumpfile] "/home/xavier/Syncs/unioeste/sd/neander/src/tb_ula.vcd"
+[dumpfile_mtime] "Sun Sep 19 23:55:25 2021"
+[dumpfile_size] 23547
+[savefile] "/home/xavier/Syncs/unioeste/sd/neander/src/wave_ula.gtkw"
+[timestart] 0
+[size] 1920 1018
+[pos] -1 146
+*-24.000000 61900000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_ula.
+[treeopen] tb_ula.u_modulo_ula.
+[sst_width] 202
+[signals_width] 203
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@28
+tb_ula.s_cl
+tb_ula.s_clk
+@200
+-Sinais
+@22
++{Barramento} tb_ula.s_barramento[7:0]
+@28
++{Operacao} tb_ula.s_ula_op[2:0]
++{NZ} tb_ula.s_flags[1:0]
+@200
+-Controle
+@28
++{MEM_RW} tb_ula.s_mem_rw
++{AC_RW} tb_ula.s_ac_rw
+@200
+-Registradores
+@22
++{AC_in} tb_ula.u_modulo_ula.u_reg_ac.d[7:0]
++{AC_out} tb_ula.u_modulo_ula.u_reg_ac.s[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
