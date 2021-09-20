@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Mon Sep 20 03:00:40 2021
+[*]
+[dumpfile] "/home/igor/Documentos/UNIOESTE/2021/SD/neander-main/src/tb_mem.vcd"
+[dumpfile_mtime] "Mon Sep 20 02:57:09 2021"
+[dumpfile_size] 18883
+[savefile] "/home/igor/Documentos/UNIOESTE/2021/SD/neander-main/src/tb_mem.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-25.000000 14500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_mem.
+[sst_width] 200
+[signals_width] 240
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@200
+-Endereço
+@24
+tb_mem.s_addr_pc[7:0]
+@200
+-Sinais de Controle
+@28
+tb_mem.s_clk
+tb_mem.s_cl
+tb_mem.s_barrpc
+tb_mem.s_rem_rw
+tb_mem.s_mem_rw
+tb_mem.s_rdm_rw
+@200
+-Sinais de dados
+@22
+tb_mem.u_modulo_mem.s_mux2rem[7:0]
+tb_mem.u_modulo_mem.s_rem2mem[7:0]
+tb_mem.u_modulo_mem.s_mem2rdm[7:0]
+tb_mem.u_modulo_mem.barramento[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
