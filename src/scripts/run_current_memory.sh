@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-STOPTIME=1100ns
+STOPTIME=2000ns
 TARGET=tb_neander
 
 ghdl -a *.vhdl && \
