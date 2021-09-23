@@ -68,7 +68,8 @@ begin
 	u_or : or8b     port map (X, Y,  sor);
 	u_add: fAdder8b port map (X, Y, '0', sco, sadd);
 	u_mux: mux_5x8  port map (
-		Y, sadd, sor, sand, snot, OP, sres
+		-- FIXED: OR e AND estavam trocados
+		Y, sadd, sand, sor, snot, OP, sres
 	);
 	NZ(0) <= '1' when sres = "00000000" else '0';
 	NZ(1) <= sres(7);

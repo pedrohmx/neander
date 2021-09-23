@@ -58,11 +58,11 @@ architecture behaviour of regc2b is
 		);
 	end component;
 begin
-	gen_r : for i in 1 downto 0 generate
-		rx : regc1b port map(
-			d(i), rw, clk, pr, cl, s(i)
-		);
-	end generate gen_r;
+	--gen_r : for i in 1 downto 0 generate
+	--FIXED: os bits iniciados agora correspondem com o esperado das flags
+	rz : regc1b port map(d(0), rw, clk, cl, pr, s(0));
+	rn : regc1b port map(d(1), rw, clk, pr, cl, s(1));
+	--end generate gen_r;
 end architecture behaviour;
 ------------------------------------------------------------
 --  regc8b

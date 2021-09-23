@@ -172,7 +172,7 @@ begin
 	u_c3b : counter3b port map(clk,cl,CI);
 	--	NOP
 	u_nop : op_nop port map(CI,snop);
-	--	STA TODO:
+	--	STA
 	u_sta : op_sta port map(CI,ssta);
 	--	LDA
 	u_lda : op_lda port map(CI,slda);
@@ -184,11 +184,11 @@ begin
 	u_or : op_or port map(CI,sor);
 	--	NOT
 	u_not : op_not port map(CI,snot);
-	--	JMP TODO:
+	--	JM
 	u_jmp : op_jmp port map(CI,sjmp);
-	--	JN  TODO:
+	--	JN
 	u_jn : op_jnz port map(CI,nz(1),sjn);
-	--	JZ  TODO:
+	--	JZ
 	u_jz : op_jnz port map(CI,nz(0),sjz);
 	--	HLT
 	u_hlt : op_hlt port map(CI,shlt);
