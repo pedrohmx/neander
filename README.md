@@ -1,7 +1,7 @@
 # Neander
 
-This repository contains the documentation and code developed for the *neander implementation* assignment of the *Digital Systems* class of 2021 at Western Paraná State University (Unioeste)
+Este repositório contém a documentação e o código desenvolvido para a tarefa *implementação do neander* da disciplina de *Sistemas Digitais* de 2021 da Universidade Estadual do Oeste do Paraná (Unioeste)
 
-All documentation related to this repository can be found at the `/docs` folder.
+Toda a documentação relacionada a este repositório pode ser encontrada na pasta `/docs`.
 
-To run a program/memory file, save it on the `/src` folder as `neanderram.mem` and use `scripts/run_current_memory.sh` to export the wave files.
+Para executar um programa/arquivo de memória, salve-o na pasta `/src` como `neanderram.mem` e use `scripts/run_current_memory.sh` para exportar os arquivos wave.
